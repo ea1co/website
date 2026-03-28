@@ -54,7 +54,7 @@ export default async function handler(req, res) {
   try {
     await resend.emails.send({
       from: 'EA1 Website <noreply@ea1.co>',
-      to: 'tim@ea1.co',
+      to: 'hello@ea1.co',
       replyTo: email,
       subject: `EA1 Contact: ${name} — ${company} (${brand})`,
       text: body,

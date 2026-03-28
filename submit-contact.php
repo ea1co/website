@@ -62,7 +62,7 @@ $body .= "Heading shown:\n\"$pitchHeading\"\n\n";
 $body .= "Body shown:\n\"$pitchBody\"\n\n";
 
 // Send email
-$to = 'tim@ea1.co';
+$to = 'hello@ea1.co';
 $subject = "EA1 Contact: $name — $company ($brand)";
 $headers  = "From: EA1 Website <noreply@shey.net>\r\n";
 $headers .= "Reply-To: $email\r\n";
