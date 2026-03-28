@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="labs.css">
   <link rel="stylesheet" href="quiz.css">
+  <script>document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lightbox').classList.remove('lightbox-open')})</script>
   <script src="nav.js" defer></script>
   <script src="quiz.js" defer></script>
   <script src="footer.js" defer></script>
@@ -20,8 +21,8 @@
   <!-- HERO -->
   <header class="labs-header">
     <p class="page-eyebrow">EA1 Labs</p>
-    <h1 class="page-title">The way we see,<br>built into the way we work.</h1>
-    <p class="page-desc">Tools that encode how EA1 thinks &mdash; about listening, about communities, about what participation actually looks like.</p>
+    <h1 class="page-title">The way we see,<br>embedded in the work itself.</h1>
+    <p class="page-desc">Instruments that carry how we think &mdash; about audiences, communities, and participation &mdash; so the work happens that way by default.</p>
   </header>
 
   <main>
@@ -31,15 +32,15 @@
       <p class="section-label">Our approach</p>
       <div class="philosophy-content">
         <div class="philosophy-text">
-          <p class="philosophy-lead">We build our own toolstack, embedded with the ways we see the world.</p>
-          <p>After more than a decade of studying how communities actually form &mdash; how people gather, participate, and influence each other &mdash; we developed a set of principles about how that works. The EA1 Way shapes every strategy we write and every recommendation we make. It made sense to encode those same principles into the instruments we use every day.</p>
-          <p>Each tool here is built around a specific need from the work itself: listening to what communities are actually saying, understanding the diversity of motivations within an audience, checking whether our own output aligns with how we think. They are designed for population thinking, not persona averaging. For context, not just content.</p>
-          <p>We build them iteratively, in conversation with AI, shaped by editorial judgment. A new feature can ship the same day someone asks for it. The tools stay close to the work because they grow directly out of it.</p>
+          <p class="philosophy-lead">Over more than a decade of studying how communities actually form &mdash; how people gather, participate, and influence each other &mdash; we developed a set of principles. Your audience has an audience. Enable fans to be better fans. Audiences are networks of participation.</p>
+          <p>These ideas shape every piece of work we put out. So we started building them directly into the instruments we use every day. The instruments hold the underlying structure &mdash; the rhythm section &mdash; so the team can focus on the higher-level thinking: interpretation, judgment, improvisation.</p>
+          <p>Each tool here exists because the work required it. Listening tuned to how communities actually behave. Analysis that preserves the diversity of motivations within an audience. Systems that pressure-test whether our thinking aligns with our principles.</p>
+          <p>We build them iteratively, in conversation with AI, shaped by editorial judgment. The team leaves feedback, we think it through together, and changes ship the same day. The tools stay close to the work because they grow directly out of it.</p>
         </div>
         <div class="philosophy-stats">
           <div class="philosophy-stat">
-            <span class="philosophy-stat-val">Principles in</span>
-            <span class="philosophy-stat-label">not bolted on &mdash; each tool encodes how EA1 sees audiences, communities, and culture</span>
+            <span class="philosophy-stat-val">Principles embedded</span>
+            <span class="philosophy-stat-label">each tool encodes how EA1 sees audiences, communities, and culture</span>
           </div>
           <div class="philosophy-stat">
             <span class="philosophy-stat-val">Same day</span>
@@ -47,7 +48,7 @@
           </div>
           <div class="philosophy-stat">
             <span class="philosophy-stat-val">Whole team</span>
-            <span class="philosophy-stat-label">actually uses them &mdash; because they were built for how this team works</span>
+            <span class="philosophy-stat-label">actually uses them &mdash; built for how this team works, not for onboarding</span>
           </div>
         </div>
       </div>
@@ -64,47 +65,48 @@
             <span class="tool-status status-live">Live</span>
           </div>
           <h2 class="tool-name">Reddit Listening</h2>
-          <p class="tool-desc">Go beyond vanity metrics to what people are actually saying. Search any topic, brand, or URL across Reddit &mdash; get structured reports with sentiment analysis, pattern detection, and community-level context. Designed for listening as a permanent input, not a kickoff exercise.</p>
+          <p class="tool-desc">Vibe coded in three days so the team could run a quick scan of Reddit conversation any time they needed one &mdash; tuned to how we actually use social listening in a LASO way. Each project gets its own point of view: some are oriented toward engagement patterns, others toward strategic insights, others toward watchouts. The team leaves feedback in Slack about what's working and what needs adjustment. We think it through together and ship changes the same day.</p>
+          <a href="#" class="tool-screenshot-link" onclick="document.getElementById('lightbox').classList.add('lightbox-open'); return false;">See it in action</a>
           <div class="tool-meta">
             <span class="tool-meta-item">Paste a URL or keywords</span>
             <span class="tool-meta-item">30-second reports</span>
-            <span class="tool-meta-item">Slack export</span>
+            <span class="tool-meta-item">LASO-tuned analysis</span>
           </div>
         </div>
 
         <div class="tool-card tool-coming">
           <div class="tool-card-top">
-            <span class="tool-status status-coming">Coming soon</span>
+            <span class="tool-status status-coming">Exploring</span>
           </div>
-          <h2 class="tool-name">Audience Insights</h2>
-          <p class="tool-desc">Understand the diversity of motivations within any audience. Ask a question in plain language, get structured insights grounded in real data &mdash; designed for population thinking, not demographic averaging.</p>
+          <h2 class="tool-name">Team Radar</h2>
+          <p class="tool-desc">The team shares stories in Slack all day &mdash; articles, references, things that caught their attention. This tool surfaces what the team is collectively paying attention to and gives it a stage. It's the same move we pioneered with fans: find the signal in what people are already talking about, elevate it, give credit, create new connections. What happens when we turn that practice inward?</p>
           <div class="tool-meta">
-            <span class="tool-meta-item">Natural language queries</span>
-            <span class="tool-meta-item">Need states &amp; motivations</span>
+            <span class="tool-meta-item">Slack integration</span>
+            <span class="tool-meta-item">Collective attention &rarr; content</span>
           </div>
         </div>
 
         <div class="tool-card tool-coming">
           <div class="tool-card-top">
-            <span class="tool-status status-coming">Coming soon</span>
+            <span class="tool-status status-coming">Exploring</span>
           </div>
-          <h2 class="tool-name">Copy Checker</h2>
-          <p class="tool-desc">Does this sound like us? Does it meet people where they are? Paste draft copy, get feedback grounded in EA1's editorial voice and strategy frameworks &mdash; checking for audience alignment, not just grammar.</p>
+          <h2 class="tool-name">LASO Alignment</h2>
+          <p class="tool-desc">A thinking partner for the work in progress. Paste a draft or a brief, and explore how it aligns with our principles &mdash; are we designing for participation? Considering the full network? Listening before we act? Less an editor, more a way of having the framework in the room while decisions are being made.</p>
           <div class="tool-meta">
-            <span class="tool-meta-item">Voice &amp; tone</span>
-            <span class="tool-meta-item">Audience alignment</span>
+            <span class="tool-meta-item">Principle alignment</span>
+            <span class="tool-meta-item">Thinking partner</span>
           </div>
         </div>
 
         <div class="tool-card tool-coming">
           <div class="tool-card-top">
-            <span class="tool-status status-coming">Coming soon</span>
+            <span class="tool-status status-coming">Exploring</span>
           </div>
-          <h2 class="tool-name">Strategy Review</h2>
-          <p class="tool-desc">Check your thinking before it goes to the client. Upload a brief or strategy doc, get feedback on how it aligns with EA1's methodology &mdash; are we designing for difference, considering the full network, enabling participation?</p>
+          <h2 class="tool-name">Trend Distance</h2>
+          <p class="tool-desc">How far does a trend travel from where it starts? This tool measures the distance between a signal first appearing on social platforms and how quickly it shows up across news media &mdash; a way of seeing how ideas move from communities into the broader conversation, and how fast that cascade happens.</p>
           <div class="tool-meta">
-            <span class="tool-meta-item">Framework alignment</span>
-            <span class="tool-meta-item">Gap analysis</span>
+            <span class="tool-meta-item">Social &rarr; media tracking</span>
+            <span class="tool-meta-item">Cascade velocity</span>
           </div>
         </div>
 
@@ -115,14 +117,21 @@
     <section class="section labs-future">
       <p class="section-label">What's next</p>
       <div class="future-content">
-        <h2 class="future-headline">From how we work to what we can offer.</h2>
-        <p>The principles that shape how EA1 builds community &mdash; listen, amplify, support, organize &mdash; are the same principles embedded in these tools. Right now they serve our team. But the architecture is simple enough that specific capabilities can be shared.</p>
-        <p>If you need a Reddit landscape scan for a quarterly review, audience insights for a campaign, or a way to pressure-test a strategy against a proven framework &mdash; these are capabilities we can open up. Per-project, per-engagement, grounded in a decade of thinking about how communities actually work.</p>
+        <h2 class="future-headline">We think a new kind of agency is emerging.</h2>
+        <p>An agency has always been a collection of people who think well together. The question is where that intelligence lives. In the senior team's intuition? In the methodology deck? In the tools everyone actually uses?</p>
+        <p>We're exploring what happens when you write your own software &mdash; designed specifically for how this team sees. When the way the team sees &mdash; how they listen, how they read a community, how they judge what matters &mdash; is carried by the systems they work through every day. The thinking doesn't disappear into a framework. It stays active in the work.</p>
+        <p>The tools above are just what we're building right now. There are more ideas behind them. Each one is a small experiment in the same larger question: what does it look like when an agency's cognition isn't locked in people's heads, but distributed across the practice itself?</p>
         <p class="future-cta-text">Interested? <a href="index.html#contact" class="future-link" onclick="openContactQuiz(); return false;">Let's talk.</a></p>
       </div>
     </section>
 
   </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox-overlay" onclick="if(event.target===this)this.classList.remove('lightbox-open')">
+    <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('lightbox-open')" aria-label="Close">&times;</button>
+    <img src="images/labs-reddit-listening.png" alt="EA1 Reddit Listening Tool screenshot" class="lightbox-img">
+  </div>
 
 </body>
 </html>
