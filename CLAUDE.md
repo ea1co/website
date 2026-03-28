@@ -1,26 +1,28 @@
 # EA1 Site — Project Context
 
 ## What This Is
-Marketing site for **Everybody At Once (EA1)**, a social media agency. Currently hosted as a test build at **https://shey.net/ea1/** via FTP. Will eventually move to **Vercel**.
+Marketing site for **Everybody At Once (EA1)**, an audience development and cultural strategy agency. Founded by Kenyatta Cheese, Kevin Slavin, and Molly Templeton. Currently hosted as a test build at **https://shey.net/ea1/** via FTP. Will eventually move to **Vercel**.
 
 ## Site Architecture
 
 ### Pages
-- `index.html` — Homepage (hero GIF, approach cards, work grid, team preview, clients, footer)
+- `index.html` — Homepage (hero GIF, approach cards, work grid, team preview, clients, footer). Has Organization JSON-LD structured data.
 - `team.html` — Full team page with bios + pets ("Support Staff")
 - `work.html` — Work index (grid of case study cards)
 - `work-*.html` — 9 individual case study pages (BBC America, Doctor Who, Killing Eve, KQED, Netflix, Orphan Black, Searchlight, Serial Box, Wonderstruck)
+- `labs.html` — EA1 Labs page (philosophy, tool directory, category claim). Has ResearchProject JSON-LD, screenshot lightbox for Reddit tool. This is the clearest articulation of the agency-intelligence-cognition thesis.
 
 ### CSS (loaded in this order, later overrides earlier)
 - `styles.css` — Shared styles for all pages (nav, footer, team grid 3-col, support grid, bio overlays, hamburger breakpoint at 480px, etc.)
 - `index.css` — Homepage-only overrides (hero, approach grid 4-col, team grid 4-col for homepage preview, work grid, clients)
 - `work.css` — Work page-specific styles
+- `labs.css` — Labs page styles (philosophy layout, tool grid, lightbox)
 - `quiz.css` — Contact quiz overlay styles
 
 ### JavaScript (all loaded with `defer`)
 - `nav.js` — **Shared nav include.** Injects nav HTML via `insertAdjacentHTML('afterbegin')`. Handles hamburger toggle, active page detection, and `document.fonts.ready` body fade-in. Nav items are defined in a `NAV_ITEMS` array at the top of the file. Approach is commented out. Newsletter links to Substack.
 - `footer.js` — **Shared footer include.** Same injection pattern as nav.js. Social icons: Instagram, Facebook, X, LinkedIn, Substack. All SVG, standardized sizing.
-- `quiz.js` — Contact quiz overlay ("My Robot Legs"). Loads questions/pitches/scoring from JSON. BuzzFeed-style point scoring determines which pitch the user sees. Submits to `submit-contact.php`.
+- `quiz.js` — Contact quiz overlay ("My Robot Legs"). Loads questions/pitches/scoring from JSON. BuzzFeed-style point scoring determines which pitch the user sees. Submits to `/api/submit-contact` (Vercel) or `submit-contact.php` (shey.net). Has spam protection: honeypot field, timing check (5s minimum), and email format validation.
 - `parallax.js` — Shared parallax effects. Hero text parallax on homepage (GIF does NOT parallax — user explicitly wants it to never be covered). Scroll-reveal fade-in on sections, cards, headings. Respects `prefers-reduced-motion`.
 
 ### Data Files (JSON — editable by hand)
@@ -30,7 +32,15 @@ Marketing site for **Everybody At Once (EA1)**, a social media agency. Currently
 - `quiz-scoring.json` — Point-scoring matrix. Each answer distributes points across pitch types. Highest score wins; ties broken by array order in `pitchIds`.
 
 ### Backend
-- `submit-contact.php` — Receives quiz submissions via POST JSON. Sends email to `tim@ea1.co` with full question/answer text and pitch result. Also logs to `contact-submissions.csv` on the server.
+- `api/submit-contact.js` — Vercel serverless function. Receives quiz submissions via POST JSON. Sends email to `hello@ea1.co` (collaborative inbox) via Resend. Includes full quiz Q&A text and pitch result.
+- `submit-contact.php` — Legacy shey.net version. Same submission format, sends to `hello@ea1.co` via PHP mail. Also logs to `contact-submissions.csv` on the server.
+
+### SEO & Structured Data
+- `robots.txt` — Explicitly allows all crawlers including AI (GPTBot, ClaudeBot, Google-Extended, PerplexityBot, Applebot-Extended).
+- All pages have `<meta description>`, Open Graph, and Twitter Card tags.
+- `index.html` has Organization JSON-LD (principles, founders, service types).
+- `labs.html` has ResearchProject JSON-LD (tools, philosophy, category thesis) plus HTML comment "liner notes" addressing both LLMs and source-reading humans.
+- Structured data is written with personality — valid Schema.org but carrying EA1's voice and principles. This is deliberate.
 
 ## Hosting & Deployment
 
@@ -43,7 +53,7 @@ Marketing site for **Everybody At Once (EA1)**, a social media agency. Currently
 
 ### Future: Vercel
 - HTML/CSS/JS works as-is
-- `submit-contact.php` will need rewrite as Node.js serverless function (use Resend or SendGrid for email)
+- `api/submit-contact.js` is already written as a Vercel serverless function using Resend (requires `RESEND_API_KEY` env var)
 - CSV logging would move to Vercel Postgres or similar
 - May add Sanity CMS for content management (access control, revision history, media uploads)
 
@@ -63,6 +73,7 @@ Marketing site for **Everybody At Once (EA1)**, a social media agency. Currently
 - Client logos: `images/clients/` directory
 - Work case study images: `images/work/` directory
 - Quiz shiba: `images/quiz-shiba.png`
+- Labs screenshot: `images/labs-reddit-listening.png` (used in lightbox and as OG image)
 
 ## Common Tasks
 
