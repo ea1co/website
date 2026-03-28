@@ -116,11 +116,6 @@
   text-decoration: none;
 }
 
-.tool-live:hover {
-  border-color: var(--blue);
-  transform: translateY(-2px);
-}
-
 .tool-coming {
   opacity: 0.5;
 }
