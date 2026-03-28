@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team — Everybody At Once</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quiz.css">
+  <script src="nav.js" defer></script>
+  <script src="quiz.js" defer></script>
+  <script src="footer.js" defer></script>
+  <script src="parallax.js" defer></script>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <p class="page-eyebrow">Our Team</p>
+    <h1 class="page-title">Internet natives.<br>Experienced builders.</h1>
+    <p class="page-desc">We are a diverse team of creators, strategists, and community architects with a natural curiosity and a deep appreciation for fandom. We speak to fans authentically because we are fans, too.</p>
+  </header>
+
+  <!-- TEAM GRID (built from team-data.json) -->
+  <section class="section">
+    <div class="section-label">The Team</div>
+    <div class="team-grid" id="team-grid"></div>
+  </section>
+
+  <!-- SUPPORT STAFF (built from team-data.json) -->
+  <section class="section">
+    <div class="section-label">Support Staff</div>
+    <div class="support-grid" id="support-grid"></div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <script>
+    var LINKEDIN_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#0A66C2"/><path fill="white" d="M7.2 9.8H4.8v8.4h2.4V9.8zm-1.2-3.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zm5.2 3.8H9v8.4h2.3v-4.3c0-1.15.9-2.05 2.05-2.05s2.05.9 2.05 2.05v4.3H17.7v-4.75c0-2.35-1.85-3.9-4.1-3.9-1.05 0-1.95.45-2.5 1.15V9.8z"/></svg>';
+
+    fetch('team-data.json').then(function(r) { return r.json(); }).then(function(data) {
+      // ── Build team cards ──
+      var teamHTML = '';
+      data.team.forEach(function(m) {
+        teamHTML += '<div class="team-card">';
+        teamHTML += '<img src="' + m.image + '" alt="' + m.name + '">';
+        teamHTML += '<div class="team-card-info">';
+        teamHTML += '<div class="team-card-name">' + m.name + '</div>';
+        teamHTML += '<div class="team-card-title">' + m.title + '</div>';
+        teamHTML += '</div>';
+        teamHTML += '<div class="team-card-bio"><p>' + m.bio + '</p></div>';
+        if (m.linkedin) {
+          teamHTML += '<a href="' + m.linkedin + '" class="team-card-linkedin" target="_blank" aria-label="' + m.name + ' on LinkedIn">' + LINKEDIN_SVG + '</a>';
+        }
+        teamHTML += '</div>';
+      });
+      document.getElementById('team-grid').innerHTML = teamHTML;
+
+      // ── Build pet cards ──
+      var petHTML = '';
+      data.pets.forEach(function(p) {
+        petHTML += '<div class="support-card">';
+        petHTML += '<img src="' + p.image + '" alt="' + p.name + '">';
+        petHTML += '<div class="support-card-name">' + p.name + '</div>';
+        petHTML += '<div class="support-card-bio"><p>' + p.bio + '</p></div>';
+        petHTML += '</div>';
+      });
+      document.getElementById('support-grid').innerHTML = petHTML;
+
+      // ── Touch bio toggle ──
+      if (window.matchMedia('(hover: none)').matches) {
+        document.querySelectorAll('.team-card, .support-card').forEach(function(card) {
+          card.addEventListener('click', function(e) {
+            if (e.target.closest('.team-card-linkedin')) return;
+            var isActive = card.classList.contains('active');
+            document.querySelectorAll('.team-card.active, .support-card.active').forEach(function(c) {
+              c.classList.remove('active');
+            });
+            if (!isActive) card.classList.add('active');
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.team-card') && !e.target.closest('.support-card')) {
+            document.querySelectorAll('.team-card.active, .support-card.active').forEach(function(c) {
+              c.classList.remove('active');
+            });
+          }
+        });
+      }
+    });
+  </script>
+
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/api/submit-contact", "destination": "/api/submit-contact" }
+  ]
+}

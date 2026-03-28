@@ -1,0 +1,47 @@
+[
+  {
+    "heading": "What best describes your brand?",
+    "options": [
+      { "value": "entertainment", "label": "Entertainment, media, or streaming" },
+      { "value": "tech", "label": "Technology or platform" },
+      { "value": "consumer", "label": "Consumer brand or lifestyle" },
+      { "value": "other", "label": "Something else" }
+    ]
+  },
+  {
+    "heading": "Where are you right now?",
+    "options": [
+      { "value": "stuck", "label": "We have a team and budget — but need strategy" },
+      { "value": "transform", "label": "We need to transform how we think about social" },
+      { "value": "scale", "label": "We're doing well and want to scale what's working" },
+      { "value": "launch", "label": "We're launching something new and need to build fast" }
+    ]
+  },
+  {
+    "heading": "What matters most to your brand right now?",
+    "options": [
+      { "value": "culture", "label": "Being part of the cultural conversation" },
+      { "value": "community", "label": "Building a loyal, engaged community" },
+      { "value": "leadership", "label": "Establishing category leadership" },
+      { "value": "innovation", "label": "Staying ahead of what's next" }
+    ]
+  },
+  {
+    "heading": "How do you think about your audience?",
+    "options": [
+      { "value": "fans", "label": "They're fans — deeply invested in what we make" },
+      { "value": "consumers", "label": "They're consumers — we're working to build deeper loyalty" },
+      { "value": "followers", "label": "They follow us — but we want more real engagement" },
+      { "value": "unknown", "label": "We're still figuring out who they are" }
+    ]
+  },
+  {
+    "heading": "What kind of partner are you looking for?",
+    "options": [
+      { "value": "strategy", "label": "A strategic advisor who can shape our thinking" },
+      { "value": "embedded", "label": "A team that embeds with us and gets things done" },
+      { "value": "creative", "label": "A creative partner who brings fresh ideas" },
+      { "value": "all", "label": "All of the above, honestly" }
+    ]
+  }
+]

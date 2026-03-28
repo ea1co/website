@@ -1,0 +1,5 @@
+# Protect contact log from direct access
+<Files "contact-log.csv">
+    Order Allow,Deny
+    Deny from all
+</Files>

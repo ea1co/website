@@ -1,0 +1,44 @@
+[
+  {
+    "id": "fandom-steward",
+    "trigger": "q3=fans OR (q3=followers AND q2=community)",
+    "heading": "Sounds like you get the value of fandom.",
+    "body": "You sit at the rare intersection of brand responsibility and audience love — you care about the communities that form around what you make. You're not trying to exploit fandom; you're trying to be worthy of it. EA1 works alongside people like you to build the kind of sustained, reciprocal audience relationships that most brands only talk about."
+  },
+  {
+    "id": "change-agent",
+    "trigger": "q1=stuck OR q1=transform",
+    "heading": "You're a change agent who needs backup.",
+    "body": "You're the kind of marketer who doesn't just react to the present — you're working to shape what comes next. Transformation at this scale is genuinely complex work: it touches strategy, culture, content, and capabilities all at once. EA1 has worked alongside people like you at Google, Netflix, and Fox Searchlight, helping them think through the vision and build the systems to get there."
+  },
+  {
+    "id": "cultural-strategist",
+    "trigger": "q2=culture OR q2=leadership",
+    "heading": "You sound like a cultural strategist to us.",
+    "body": "You think about social the way a cultural critic thinks about media — with a point of view, a long memory, and an eye for what's actually happening vs. what's being hyped. You hold the work to a high bar because you know your audience can tell the difference. EA1 was made for brand leaders like you: partners who operate at that level and want to push the thinking further."
+  },
+  {
+    "id": "growth-builder",
+    "trigger": "q1=scale",
+    "heading": "Sounds like you're in a growth moment.",
+    "body": "You've done the hard work of figuring out what resonates — and now you're being asked to scale it without losing what makes it special. That tension between growth and authenticity is one of the most interesting problems in brand building right now. EA1 brings the strategic and operational layer that lets high-performing marketers go bigger while preserving the heart and soul."
+  },
+  {
+    "id": "category-leader",
+    "trigger": "q0=tech OR q2=innovation",
+    "heading": "Sounds like you're a category leader who refuses to coast.",
+    "body": "You're in a space where the pace of change is a feature, not a bug — and you've built your approach around staying ahead of it. You're not looking for an agency to execute briefs; you're looking for a thought partner with deep cultural insights who can move at your speed and help you stay in front of the conversation. That's exactly how EA1 operates."
+  },
+  {
+    "id": "ground-up-builder",
+    "trigger": "q1=launch OR q3=unknown",
+    "heading": "You sound like someone building from zero to one.",
+    "body": "You're at the moment where the foundations get laid — and you're smart enough to know that getting it right early is worth far more than fixing it later. Whether you're launching a new brand, a new franchise, or a whole new relationship with your audience, EA1 helps people in your position move with speed and intention at the same time."
+  },
+  {
+    "id": "default",
+    "trigger": "default",
+    "heading": "Sounds like you hold work to a higher standard.",
+    "body": "EA1 sits at the intersection of cultural intelligence, audience science, and embedded execution — the combination big brands need but rarely find in one partner. Let's talk."
+  }
+]
