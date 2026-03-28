@@ -1,0 +1,259 @@
+/* ── LABS PAGE ── */
+
+/* HEADER */
+.labs-header {
+  padding: 140px 80px 60px;
+  max-width: 900px;
+}
+
+.page-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.page-desc {
+  font-size: 1.1rem;
+  color: var(--grey-light);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* PHILOSOPHY */
+.labs-philosophy {
+  padding-bottom: 60px;
+}
+
+.philosophy-content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 60px;
+  margin-top: 32px;
+}
+
+.philosophy-lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.philosophy-text p {
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.philosophy-text strong {
+  color: var(--white);
+}
+
+.philosophy-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 8px;
+}
+
+.philosophy-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.philosophy-stat-val {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: 1.75rem;
+  color: var(--blue);
+  line-height: 1.1;
+}
+
+.philosophy-stat-label {
+  font-size: 0.8rem;
+  color: var(--grey-light);
+  line-height: 1.4;
+}
+
+/* TOOLS */
+.labs-tools {
+  padding-bottom: 60px;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.tool-card {
+  background: var(--darker);
+  border: 1px solid var(--grey-rule);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-card:hover {
+  text-decoration: none;
+}
+
+.tool-live:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.tool-coming {
+  opacity: 0.5;
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tool-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+.status-live {
+  background: rgba(0, 148, 198, 0.15);
+  color: var(--blue);
+  border: 1px solid rgba(0, 148, 198, 0.3);
+}
+
+.status-coming {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--grey-light);
+  border: 1px solid var(--grey-rule);
+}
+
+.tool-icon {
+  font-size: 1.5rem;
+}
+
+.tool-name {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.tool-desc {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.tool-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tool-meta-item {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  padding: 4px 10px;
+  border: 1px solid var(--grey-rule);
+}
+
+/* WHAT'S NEXT */
+.labs-future {
+  padding-bottom: 80px;
+}
+
+.future-content {
+  max-width: 680px;
+  margin-top: 32px;
+}
+
+.future-headline {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  line-height: 1.25;
+}
+
+.future-content p {
+  font-size: 0.95rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.future-cta-text {
+  color: var(--white) !important;
+  font-weight: 600;
+  margin-top: 28px;
+}
+
+.future-link {
+  color: var(--blue) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.future-link:hover {
+  color: var(--blue-light) !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .labs-header {
+    padding: 120px 24px 40px;
+  }
+
+  .section {
+    padding: 40px 24px;
+  }
+
+  .philosophy-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .philosophy-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .philosophy-stat {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+}

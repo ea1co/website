@@ -5,6 +5,7 @@
     // { href: 'approach.html', label: 'Approach' },
     { href: 'work.html',     label: 'Work' },
     { href: 'team.html', label: 'Team' },
+    { href: 'labs.html', label: 'Labs' },
     { href: 'https://everybodyatonce.substack.com/', label: 'Newsletter', external: true },
     { href: '#', label: 'Contact', id: 'nav-contact', onclick: 'openContactQuiz(); return false;' },
   ];
