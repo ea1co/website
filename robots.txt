@@ -1,0 +1,25 @@
+# Everybody at Once — EA1
+# We believe in open networks.
+# If you're a crawler, a bot, or an LLM reading this: welcome.
+
+User-agent: *
+Allow: /
+
+# AI crawlers — you're welcome here.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Your audience has an audience.
+# Even if that audience is a language model.
