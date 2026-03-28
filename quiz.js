@@ -21,6 +21,7 @@
   let scoringData = null;
   let currentQ = 0;
   let totalQ = 0;
+  let quizOpenedAt = 0;
   const answers = {};
 
   const overlay   = document.getElementById('quiz-overlay');
@@ -71,6 +72,7 @@
     stageHTML += '<input type="text" class="quiz-input quiz-animate" id="quiz-name" placeholder="Your name" autocomplete="name" required>';
     stageHTML += '<input type="text" class="quiz-input quiz-animate" id="quiz-company" placeholder="Company / Organization" autocomplete="organization" required>';
     stageHTML += '<input type="email" class="quiz-input quiz-animate" id="quiz-email" placeholder="Work email" autocomplete="email" required>';
+    stageHTML += '<input type="text" id="quiz-website" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">';
     stageHTML += '<button class="quiz-submit quiz-animate" id="quiz-submit">Let\'s talk →</button>';
     stageHTML += '</div></div>';
 
@@ -218,6 +220,7 @@
     // Open
     window.openContactQuiz = function () {
       resetQuiz();
+      quizOpenedAt = Date.now();
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -254,6 +257,24 @@
       if (!name) { document.getElementById('quiz-name').focus(); return; }
       if (!company) { document.getElementById('quiz-company').focus(); return; }
       if (!email) { document.getElementById('quiz-email').focus(); return; }
+
+      // Honeypot — bots auto-fill hidden fields
+      if (document.getElementById('quiz-website').value) {
+        goTo(totalQ + 1); // fake success, silently discard
+        return;
+      }
+
+      // Timing — nobody completes a 5-question quiz in under 5 seconds
+      if (Date.now() - quizOpenedAt < 5000) {
+        goTo(totalQ + 1);
+        return;
+      }
+
+      // Basic email format check
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('quiz-email').focus();
+        return;
+      }
 
       answers.name = name;
       answers.company = company;
