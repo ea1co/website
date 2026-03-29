@@ -36,9 +36,7 @@
 }
 
 .philosophy-content {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 60px;
+  max-width: 680px;
   margin-top: 32px;
 }
 
