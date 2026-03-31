@@ -1,16 +1,16 @@
 # EA1 Site — Project Context
 
 ## What This Is
-Marketing site for **Everybody At Once (EA1)**, an audience development and cultural strategy agency. Founded by Kenyatta Cheese, Kevin Slavin, and Molly Templeton. Currently hosted as a test build at **https://shey.net/ea1/** via FTP. Will eventually move to **Vercel**.
+Marketing site for **Everybody At Once (EA1)**, an audience development and cultural strategy agency. Founded by Kenyatta Cheese, Kevin Slavin, and Molly Templeton. Live at **https://ea1.co** via Vercel, deployed from **github.com/ea1co/website**.
 
 ## Site Architecture
 
 ### Pages
 - `index.html` — Homepage (hero GIF, approach cards, work grid, team preview, clients, footer). Has Organization JSON-LD structured data.
-- `team.html` — Full team page with bios + pets ("Support Staff")
+- `team.html` — Full team page with bios, "Our Network" collaborators statement, and pets ("Support Staff")
 - `work.html` — Work index (grid of case study cards)
 - `work-*.html` — 9 individual case study pages (BBC America, Doctor Who, Killing Eve, KQED, Netflix, Orphan Black, Searchlight, Serial Box, Wonderstruck)
-- `labs.html` — EA1 Labs page (philosophy, tool directory, category claim). Has ResearchProject JSON-LD, screenshot lightbox for Reddit tool. This is the clearest articulation of the agency-intelligence-cognition thesis.
+- `labs.html` — EA1 Labs page (philosophy, tool directory, category claim). Has ResearchProject JSON-LD, screenshot lightbox for Murmur. This is the clearest articulation of the agency-intelligence-cognition thesis.
 
 ### CSS (loaded in this order, later overrides earlier)
 - `styles.css` — Shared styles for all pages (nav, footer, team grid 3-col, support grid, bio overlays, hamburger breakpoint at 480px, etc.)
@@ -44,18 +44,15 @@ Marketing site for **Everybody At Once (EA1)**, an audience development and cult
 
 ## Hosting & Deployment
 
-### Current: shey.net (cPanel)
-- Host: shey.net / cPanel at bluesky.entirelydigital.com
-- FTP user: `claude@shey.net` (password in separate context file)
-- FTP root = `public_html/` (don't include "public_html" in paths)
-- Upload command: `curl -s --ftp-pasv -T localfile ftp://shey.net/ea1/remote-path --user "claude@shey.net:PASSWORD"`
-- Test URL: https://shey.net/ea1/
+### Vercel (live)
+- **Domain:** ea1.co (DNS via Cloudflare, proxied to Vercel)
+- **Repo:** github.com/ea1co/website (public, auto-deploys on push to main)
+- `api/submit-contact.js` — Vercel serverless function using Resend (requires `RESEND_API_KEY` env var)
+- Pushes to `main` auto-deploy in ~30 seconds
 
-### Future: Vercel
-- HTML/CSS/JS works as-is
-- `api/submit-contact.js` is already written as a Vercel serverless function using Resend (requires `RESEND_API_KEY` env var)
-- CSV logging would move to Vercel Postgres or similar
-- May add Sanity CMS for content management (access control, revision history, media uploads)
+### Legacy: shey.net (cPanel)
+- Previous test build location. No longer actively used.
+- FTP user: `claude@shey.net` (password in separate context file)
 
 ## Key Design Decisions
 - **No inline styles.** All CSS in external stylesheets.
@@ -73,19 +70,22 @@ Marketing site for **Everybody At Once (EA1)**, an audience development and cult
 - Client logos: `images/clients/` directory
 - Work case study images: `images/work/` directory
 - Quiz shiba: `images/quiz-shiba.png`
-- Labs screenshot: `images/labs-reddit-listening.png` (used in lightbox and as OG image)
+- Labs screenshot: `images/labs-reddit-listening.png` (Murmur tool screenshot, used in lightbox and as OG image)
 
 ## Common Tasks
 
 ### Add a team member
-1. Add their headshot to `images/`
+1. Add their headshot to `images/` as `{firstname}-{lastname}.jpg`
 2. Add an entry to `team-data.json` in the `team` array (alphabetical by last name)
-3. Upload both files via FTP
+3. `git add` both files, commit, and push
 
 ### Add a pet
 1. Add photo to `images/` as `pet-{name}.jpg`
 2. Add entry to `team-data.json` in the `pets` array (alphabetical by first name)
-3. Upload both files via FTP
+3. `git add` both files, commit, and push
+
+### Edit team bios/titles/photos
+Team members submit requests in the **#website** Slack channel. Kenyatta reviews with Claude, then pushes changes. Edit `team-data.json` and/or replace the image file in `images/`.
 
 ### Edit quiz questions/answers
 Edit `quiz-questions.json`. If you add/remove options, update `quiz-scoring.json` to include scoring for the new values.
@@ -96,7 +96,8 @@ Edit the `NAV_ITEMS` array at the top of `nav.js`.
 ### Update footer social links
 Edit `footer.js`.
 
-### Upload changes to test server
+### Deploy changes
 ```bash
-curl -s --ftp-pasv -T filename ftp://shey.net/ea1/filename --user "claude@shey.net:PASSWORD"
+git add <files> && git commit -m "message" && git push
 ```
+Vercel auto-deploys from main in ~30 seconds.
