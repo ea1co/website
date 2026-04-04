@@ -1,7 +1,10 @@
 # EA1 Site — Project Context
 
 ## What This Is
-Marketing site for **Everybody At Once (EA1)**, an audience development and cultural strategy agency. Founded by Kenyatta Cheese, Kevin Slavin, and Molly Templeton. Live at **https://ea1.co** via Vercel, deployed from **github.com/ea1co/website**.
+Marketing site for **Everybody At Once (EA1)**, an audience strategy agency built on a specific insight: audiences are networks of participation. Founded by Kenyatta Cheese, Kevin Slavin, and Molly Templeton. Live at **https://ea1.co** via Vercel, deployed from **github.com/ea1co/website**.
+
+### Positioning (as of April 2026)
+The site leads with worldview, not services. EA1 wins work through referrals, not inbound discovery — the site confirms why EA1 is different for people already in conversation. Three principles (Your audience has an audience / Enable fans to be better fans / Audiences are networks of participation) and one framework (LASO: Listen, Amplify, Support, Organize) are the structural foundation. Services are embedded throughout the copy rather than listed separately. See `CHANGELOG.md` for strategic reasoning behind copy decisions.
 
 ## Site Architecture
 
