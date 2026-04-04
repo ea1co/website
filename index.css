@@ -46,6 +46,10 @@
   max-width: 600px;
 }
 
+.hero-subhead + .hero-subhead {
+  margin-top: 1em;
+}
+
 .hero-subhead strong {
   color: var(--white);
   font-weight: 600;
